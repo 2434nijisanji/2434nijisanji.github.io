@@ -1,0 +1,12 @@
+{
+    "name": "lab411/message-board",
+    "require": {},
+    "description": "留言板啦",
+    "autoload": {
+        "psr-4": {
+            "Act\\" : "act",
+            "Database\\": "database",
+            "View\\": "view"
+        }
+    }
+}

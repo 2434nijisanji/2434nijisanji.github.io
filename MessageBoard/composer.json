@@ -1,0 +1,11 @@
+{
+    "name": "lab411/message-board",
+    "require": {},
+    "description": "留言板啦",
+    "autoload": {
+        "psr-4": {
+            "App\\" : "src",
+            "Infra\\": "infra"
+        }
+    }
+}
