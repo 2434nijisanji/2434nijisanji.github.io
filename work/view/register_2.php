@@ -89,13 +89,13 @@
                     <div class = "field">
                         <div class = "ui left icon input">
                             <i class = "user icon"></i>
-                            <input type = "name" name = "uid" placeholder = "帳號" required = "required">
+                            <input type = "text" name = "uid" placeholder = "帳號" required = "required">
                         </div>
                     </div>
                     <div class = "field">
                         <div class = "ui left icon input">
                             <i class = "user icon"></i>
-                            <input type = "name" name = "id" placeholder = "暱稱" required = "required">
+                            <input type = "text" name = "id" placeholder = "暱稱" required = "required">
                         </div>
                     </div>
                     <div class = "field">
@@ -119,7 +119,7 @@
                     <div class = "form__info">
                         <p>出生年非必填，填寫有助站方提供更好的服務</p>
                     </div>
-                    <input type = "button" onclick = "location.href  =  'doregister.php'" name = "nextstep" class = "huge ui blue button" value = "下一步" style = "width: 100%;">
+                    <input type = "submit" onclick = "location.href  =  '../act/doregister.php'" name = "nextstep" class = "huge ui blue button" value = "下一步" style = "width: 100%;">
                     <br>
                     <br>
                 </div>

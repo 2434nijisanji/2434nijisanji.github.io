@@ -68,7 +68,6 @@
                     </li>
                     <li class = "nav-item active"><a class = "nav-link" href = "search_password.php" style = "border-right:1px solid
                                     #ffffff"><small>忘記密碼</small><span class = "sr-only">(current)</span></a></li>
-                    <hr>
                     <li class = "nav-item active"><a class = "nav-link" href = "search_id.php" style = "border-right:1px solid
                                     #ffffff"><small>忘記帳號</small><span class = "sr-only">(current)</span></a></li>
                     <li class = "nav-item active"><a class = "nav-link" href = "two_step_auth_reset2.php" style = "border-right:1px solid

@@ -11,23 +11,23 @@
     <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href = "css/index.css" rel = "stylesheet" />
 
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/reset.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/site.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/reset.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/site.css">
 
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/container.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/grid.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/header.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/image.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/menu.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/container.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/grid.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/header.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/image.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/menu.css">
 
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/divider.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/segment.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/form.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/input.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/button.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/list.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/message.css">
-    <link rel = "stylesheet" type = "text/css" href = "dist/components/icon.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/divider.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/segment.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/form.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/input.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/button.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/list.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/message.css">
+    <link rel = "stylesheet" type = "text/css" href = "../dist/components/icon.css">
 
     <script src = "assets/library/jquery.min.js"></script>
     <script src = "dist/components/form.js"></script>
@@ -37,7 +37,7 @@
     <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <style type = "text/css">
         body {
-            background-color: #000000;
+            background-color: #272727;
         }
 
         body>.grid {
@@ -66,18 +66,43 @@
             <div class = "collapse navbar-collapse" id = "navbarResponsive">
                 <ul class = "navbar-nav ml-auto nav justify-content-center">
                     <li class = "nav-item active">
+                        <i class = "large volume up link icon"></i>
+                        &nbsp
+                        &nbsp
+                    </li>
+                    <li class = "nav-item active">
+                        <i class = "large rss square link icon"></i>
+                        &nbsp
+                        &nbsp
+                    </li>
+                    <li class = "nav-item active">
+                        <i class = "large thumbs up link icon"></i>
+                        &nbsp
+                        &nbsp
+                    </li>
+                    <li class = "nav-item active">
+                        <i class = "large comment link icon"></i>
+                        &nbsp
+                        &nbsp
+                    </li>
+                    <li class = "nav-item active">
                         <a class = "nav-link" style = "border-right:1px solid #ffffff">
-                            <i class = "large question circle link icon"></i>
+                            <i class = "large envelope link icon"></i>
                         </a>
                     </li>
                     <li class = "nav-item active">
-                        <a class = "nav-link" href = "view/login.php" style = "border-right:1px solid #ffffff"><small>我要登入</small>
-                            <span class = "sr-only">(current)</span>
+                        <a class = "nav-link" style = "border-right:1px solid #ffffff">
+                            <i class = "large tags link icon"></i>
                         </a>
                     </li>
                     <li class = "nav-item active">
-                        <a class = "nav-link" href = "view/register.php" style = "border-right:1px solid #ffffff"><small>註冊</small>
-                            <span class = "sr-only">(current)</span>
+                        <a class = "nav-link">
+                            <i class = "large circle link icon"></i>
+                        </a>
+                    </li>
+                    <li class = "nav-item active">
+                        <a class = "nav-link" style = "border-right:1px solid #ffffff">
+                            <i class = "large angle down link icon"></i>
                         </a>
                     </li>
                     <li class = "nav-item active">
@@ -123,39 +148,12 @@
                     &nbsp
                 </li>
                 <li class = "nav-item active">
-                    <button class = "small pink ui button"><a href = "act/checklogin.php" >發文</a></button>
+                    <button class = "small pink ui button"><a href = "../act/checklogin.php" >發文</a></button>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class = "container">
-        <div class = "row">
-            <div class = "col-9">
-                <marquee scrollamount = "3" style = "color:red;font-size:50">場外ㄈㄓ們通通聯合起來抗疫！做好防疫措施、不任意猜測或轉傳未經證實的疫情資訊，場外小組關心您</marquee>
-            </div>
-            <div class = "col-3">
-                <div class = "ui container segment" style = "background-color:#272727">
-                    <span style = "color:white;">版務人員:
-                        <img class = "img-fluid" src = "https://avatar2.bahamut.com.tw/avataruserpic/e/d/edfrmpc44ic/edfrmpc44ic_s.png">
-                        <img class = "img-fluid" src = "https://avatar2.bahamut.com.tw/avataruserpic/y/u/yunski/yunski_s.png">
-                        <img class = "img-fluid" src = "https://avatar2.bahamut.com.tw/avataruserpic/j/o/johnny860726/johnny860726_s.png">
-                        <hr  style='background-color:grey;' width = 100%>
-                        <img class = "img-fluid" src = "https://p2.bahamut.com.tw/B/GUILD/f/8/0000006458.PNG">
-                        <p>
-                            7971 筆精華，前天 更新
-                            一個月內新增 140 筆
-                            歡迎加入共同維護。
-                        </p>
-                    </span>
-                </div>
-                <img class = "img-fluid" src = "pic/index-6.jpg">
-                <img class = "img-fluid" src = "pic/index-3.jpg">
-                <img class = "img-fluid" src = "pic/index-4.jpg">
-                <img class = "img-fluid" src = "pic/index-5.jpg">
-            </div>
-        </div>
-    </div>
-    
+
 </body>
 
 </html>

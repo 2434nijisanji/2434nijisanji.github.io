@@ -17,7 +17,7 @@ echo "</div>";
 <body style = "background-size: cover; background-attachment: fixed">
     <div>
         <input type = "button" value = "新增留言" onclick = "location.href = '../act/checklogin.php'" class = " button">
-        <input type = "button" value = "檢視留言" onclick = "location.href = 'showmessage.php'" class = "button">
+        <input type = "button" value = "檢視留言" onclick = "location.href = 'test.php'" class = "button">
         <input type = "button" value = "登出" onclick = "location.href = 'logout.php'" class = "button" style = "float: right">
         <hr width = "100%">
     </div>
@@ -48,8 +48,8 @@ echo "</div>";
                         <?php
                         if ($res['user'] == $id) {
                         ?>
-                            <span style = 'float: right'><a href = 'checkdelete.php?id = <?php echo $res["id"] ?>'><input type = 'submit' class = 'button1' value = '刪除留言'></input></a></span>
-                            <span style = 'float: right'><a href = 'updatemessage.php?id = <?php echo $res["id"] ?>'><input type = 'submit' class = 'button1' value = '編輯留言'></input></a></span>
+                            <span style = 'float: right'><a href = 'checkdelete.php?id=<?php echo $res["id"] ?>'><input type = 'submit' class = 'button1' value = '刪除留言'></input></a></span>
+                            <span style = 'float: right'><a href = 'updatemessage.php?id=<?php echo $res["id"] ?>'><input type = 'submit' class = 'button1' value = '編輯留言'></input></a></span>
                         <?php
                         }
                         ?>
@@ -79,7 +79,7 @@ echo "</div>";
             if ($i == $p) {
                 echo "<div style = 'background: #e8ffc4; width: 25px; display: inline-block; margin-right: 10px'>", $i, "</div>";
             } else {
-                echo '<a href = "showmessage.php?p = ', $i, '">', "<div style  =  'width:25px;display: inline-block; margin-right: 10px; background: #FF9D6F'>", $i, '</div>', '</a>';
+                echo '<a href = "test.php?p = ', $i, '">', "<div style  =  'width:25px;display: inline-block; margin-right: 10px; background: #FF9D6F'>", $i, '</div>', '</a>';
             }
         }
         echo "<div style = 'display: inline-block; margin-right: 10px'>", '當前在 ', $p, ' 頁', "</center></div>";

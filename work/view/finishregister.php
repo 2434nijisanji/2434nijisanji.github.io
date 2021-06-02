@@ -2,19 +2,22 @@
 
 session_start();
 
-$id  =  $_SESSION['uid'];
+require_once "../database/connet.php";
+require_once '../database/mysqlconfig.php';
+
+$database = new Database();
+$link = $database->connect();
+
+$id = $_SESSION["uid"];
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <!-- Standard Meta -->
     <meta charset = "utf-8" />
     <meta http-equiv = "X-UA-Compatible" content = "IE = edge,chrome = 1" />
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0,
             maximum-scale = 1.0">
-
-    <!-- Site Properties -->
     <title>會員登入 - 巴哈姆特</title>
     <link rel = "icon" type = "image/x-icon" href = "https://i2.bahamut.com.tw/anime/baha_s.png" />
     <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -88,7 +91,7 @@ $id  =  $_SESSION['uid'];
     </nav>
     <div class = "ui middle aligned center aligned grid">
         <div class = "column">
-            <form class = "ui large form" method = "POST" action = "showmessage.php" name = "frmLogin">
+            <form class = "ui large form" method = "POST" action = "test.php" name = "frmLogin">
                 <div class = "ui stacked segment">
                     <br>
                     <h1>
@@ -96,7 +99,7 @@ $id  =  $_SESSION['uid'];
                             <?php echo "$id" ?> 已完成註冊
                         </div>
                     </h1>
-                    <input type = "button" name = "nextstep" class = "huge ui blue button" onclick = "location.href  =  'showmessage.php'" value = "開始旅程" style = "width: 100%;">
+                    <input type = "button" name = "nextstep" class = "huge ui blue button" onclick = "location.href  =  'test.php'" value = "開始旅程" style = "width: 100%;">
                     <br>
                     <br>
                 </div>

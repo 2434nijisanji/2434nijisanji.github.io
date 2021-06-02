@@ -93,7 +93,7 @@
                     <div class = "field">
                         <div class = "ui left icon input">
                             <i class = "user icon"></i>
-                            <input type = "name" name = "uid" placeholder = "帳號" required = "required">
+                            <input type = "text" name = "uid" placeholder = "帳號" required = "required">
                         </div>
                     </div>
                     <div class = "field">

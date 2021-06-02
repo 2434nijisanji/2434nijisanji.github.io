@@ -13,7 +13,7 @@
         <script>
             var yes = confirm('確定刪除?');
             if (!yes) {
-                location = 'showmessage.php';
+                location = 'test.php';
                 alert('取消刪除');
                 exit;
             }

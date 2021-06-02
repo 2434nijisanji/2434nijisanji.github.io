@@ -16,5 +16,5 @@ $result = mysqli_query($link , $sql);
 ?>
 <script type='text/javascript'>
     alert('編輯留言成功')
-    location.href='../view/showmessage.php'
+    location.href='../view/test.php'
 </script>

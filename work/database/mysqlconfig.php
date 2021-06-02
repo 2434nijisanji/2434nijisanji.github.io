@@ -43,7 +43,7 @@ class Database
         if (mysqli_query($link, $sql)) { ?>
             <script>
                 alert('留言成功!');
-                location = '../view/showmessage.php'
+                location = '../view/test.php'
             </script>
         <?php
         } else {
