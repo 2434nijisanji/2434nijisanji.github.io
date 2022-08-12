@@ -18,7 +18,7 @@ if ($res['user'] != $id) {
 ?>
     <script>
     alert('刪除失敗');
-    location = '../view/test.php'
+    location = '../view/alltitle.php'
     </script>
 <?php
 }
@@ -27,7 +27,7 @@ $que = mysqli_query($link, $sql);
 if ($que) { ?>
     <script>
         alert('刪除成功');
-        location = '../view/test.php'
+        location = '../view/alltitle.php'
     </script>
 <?php
     exit();

@@ -102,7 +102,7 @@
                             <input type = "password" name = "password" placeholder = "密碼" required = "required">
                         </div>
                     </div>
-                    <div class = "form__checkbox">
+                    <div class = "form_checkbox">
                         <label><input type = "checkbox" name = "saveid" value = "T" checked><span>記住帳號</span></label>
                         <label><input type = "checkbox" id = "autoLogin" name = "autoLogin" value = "T" checked><span>保持登入狀態</span></label>
                     </div>

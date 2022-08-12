@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+$con = @mysqli_connect("127.0.0.1", "root", "YiUMq6P1D8e1HU7I", "my1");
+if (!$con) {
+    die("資料庫連線錯誤" . mysqli_connect_error());
+}
+mysqli_query($con, "set names'utf8'");
+
+$pagesize = 30;
+
+@$p = $_GET['p'] ? $_GET['p'] : 1;
+
+$offset = ($p - 1) * $pagesize;
+$query_sql = "select * from tbl_ms1 where user order by user desc limit $offset,$pagesize";
+$result = mysqli_query($con, $query_sql);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,6 +37,7 @@
     <link rel = "stylesheet" type = "text/css" href = "dist/components/header.css">
     <link rel = "stylesheet" type = "text/css" href = "dist/components/image.css">
     <link rel = "stylesheet" type = "text/css" href = "dist/components/menu.css">
+    <link rel = "stylesheet" type = "text/css" href = "dist/components/table.css">
 
     <link rel = "stylesheet" type = "text/css" href = "dist/components/divider.css">
     <link rel = "stylesheet" type = "text/css" href = "dist/components/segment.css">
@@ -55,83 +74,105 @@
 </head>
 
 <body>
-    <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class = "container">
-            <a class = "navbar-brand" href = "index.php"><img class = "img-fluid" src = "https://i2.bahamut.com.tw/top_logo.svg" alt = "Logo" style = "width:100px;"></a>
-            <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarResponsive" aria-controls = "navbarResponsive" aria-expanded = "false" aria-label = "Toggle navigation"><span class = "navbar-toggler-icon"></span></button>
-            <div class="ui inverted left icon input">
-                <input type="text" placeholder="輸入1或多字元來找文章...">
-                <i class="search link icon"></i>
-            </div>
-            <div class = "collapse navbar-collapse" id = "navbarResponsive">
-                <ul class = "navbar-nav ml-auto nav justify-content-center">
-                    <li class = "nav-item active">
-                        <a class = "nav-link" style = "border-right:1px solid #ffffff">
-                            <i class = "large question circle link icon"></i>
-                        </a>
-                    </li>
-                    <li class = "nav-item active">
-                        <a class = "nav-link" href = "view/login.php" style = "border-right:1px solid #ffffff"><small>我要登入</small>
-                            <span class = "sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class = "nav-item active">
-                        <a class = "nav-link" href = "view/register.php" style = "border-right:1px solid #ffffff"><small>註冊</small>
-                            <span class = "sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class = "nav-item active">
-                        <a class = "nav-link">
-                            <i class = "large bars link icon"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <nav class = "navbar navbar-expand-lg navbar-info bg-info min-height = 10px max-height = 10px">
-        <div class = "container">
-            <ul class = "navbar-nav nav">
-                <li class = "nav-item active">
-                    <a class = "nav-link" style = "color: white;" href = "#"><b>哈啦區</b></a>
-                </li>
-                <li class = "nav-item active">
-                    <a class = "nav-link" style = "color: white;" href = "#"><b>場外休憩區</b></a>
-                </li>
-                <li class = "nav-item active">
-                    <a class = "nav-link" style = "color: white;" href = "#"><b>文章列表</b></a>
-                </li>
-                <li class = "nav-item active">
-                    <a class = "nav-link" style = "color: white;" href = "#"><b>精華區</b></a>
-                </li>
-                <li class = "nav-item active">
-                    <a class = "nav-link" style = "color: white;" href = "#"><b>版規</b></a>
-                </li>
-                <li class = "nav-item active">
-                    <a class = "nav-link" style = "color: white;" href = "#"><b>水桶</b></a>
-                </li>
-            </ul>
-            <ul class = "navbar-nav ml-auto nav justify-content-center">
-                <li class = "nav-item active">
-                    <i class = "inverted large tag link icon"></i>
-                    &nbsp
-                    &nbsp
-                </li>
-                <li class = "nav-item active">
-                    <i class = "inverted large ellipsis horizontal link icon"></i>
-                    &nbsp
-                    &nbsp
-                </li>
-                <li class = "nav-item active">
-                    <button class = "small pink ui button"><a href = "act/checklogin.php" >發文</a></button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class = "container">
+    <div class = "container" style = "top: 120px; position:relative;">
         <div class = "row">
             <div class = "col-9">
                 <marquee scrollamount = "3" style = "color:red;font-size:50">場外ㄈㄓ們通通聯合起來抗疫！做好防疫措施、不任意猜測或轉傳未經證實的疫情資訊，場外小組關心您</marquee>
+                <?php
+                    $count_result = mysqli_query($con, "select count(*) as count from tbl_ms1 where user");
+                    $count_array = mysqli_fetch_array($count_result);
+
+                    $pagenum = ceil($count_array['count'] / $pagesize);
+
+                if ($pagenum >= 1) {
+                    for ($i = 1; $i <= $pagenum; $i++) {
+                        if ($i == $p) {
+                            ?>
+                                <div style = 'text-align:center;background: #00E3E3; width: 15px; display: inline-block; margin-right: 10px;'> <?php echo $i ?></div>
+                            <?php
+                        } else {
+                            ?>
+                                <a href = "index.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
+                            <?php
+                        }
+                    }
+                }
+                ?>
+                <br>
+                <br>
+                <button class = "tiny ui grey basic button">技藝知識</button>
+                <button class = "tiny ui grey basic button">版務公告</button>
+                <button class = "tiny ui grey basic button">板務功能</button>
+                <button class = "tiny ui grey basic button">吵架擂台</button>
+                <button class = "tiny ui grey basic button">回收專區</button>
+                <br>
+                <button class = "tiny ui grey basic button">全部主題</button>
+                <button class = "tiny ui grey basic button">場外綜合</button>
+                <button class = "tiny ui grey basic button">動漫遊戲</button>
+                <button class = "tiny ui grey basic button">生活百態</button>
+                <button class = "tiny ui grey basic button">心情點滴</button>
+                <button class = "tiny ui grey basic button">綜合娛樂</button>
+                <button class = "tiny ui grey basic button">新聞焦點</button>
+                <button class = "tiny ui grey basic button">政治議題</button>
+                <button class = "tiny ui grey basic button">食趣旅遊</button>
+                <button class = "tiny ui grey basic button">認真求助</button>
+                <button class = "tiny ui grey basic button">創作天地</button>
+                <div style = 'margin-top:55px'>
+                    <table class = "ui inverted grey unstackable table">
+                        <thead>
+                            <tr>
+                                <th>標題</th>
+                                <th>作者</th>
+                                <th class="right aligned">發文時間</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($res = mysqli_fetch_array($result)) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <a href = "view/notlogin.php?id=<?php echo $res['id'] ?>" style = "color:white;">
+                                        <?php echo $res['title'] ?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href = "view/notlogin.php?id=<?php echo $res['id'] ?>" style = "color:white;">
+                                            <?php echo $res['author'] ?>
+                                        </a>
+                                    </td>
+                                    <td class = "right aligned">
+                                        <a href = "view/notlogin.php?id=<?php echo $res['id'] ?>"  style = "color:white;">
+                                            <?php echo $res['time'] ?>
+                                        </a>
+                                    </td>
+                                </tr>    
+                                <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <?php
+                    $count_result = mysqli_query($con, "select count(*) as count from tbl_ms1 where user");
+                    $count_array = mysqli_fetch_array($count_result);
+
+                    $pagenum = ceil($count_array['count'] / $pagesize);
+
+                if ($pagenum >= 1) {
+                    for ($i = 1; $i <= $pagenum; $i++) {
+                        if ($i == $p) {
+                            ?>
+                                <div style = 'text-align:center;background: #00E3E3; width: 15px; display: inline-block; margin-right: 10px;'> <?php echo $i ?></div>
+                            <?php
+                        } else {
+                            ?>
+                                <a href = "index.php?p=<?php echo $i?>"><div style = 'text-align:center;width:15px; display: inline-block; margin-right: 10px; background: #272727'> <?php echo $i ?></div></a>
+                            <?php
+                        }
+                    }
+                }
+                ?>
             </div>
             <div class = "col-3">
                 <div class = "ui container segment" style = "background-color:#272727">
@@ -155,7 +196,56 @@
             </div>
         </div>
     </div>
-    
+    <div style = "top: 0px; position:fixed; width:100%;">
+        <div class = "ui teal inverted menu" style = "margin-bottom: 0px;">
+            <div class = "ui container">
+                <img img class = "img-fluid" src = "https://i2.bahamut.com.tw/top_logo.svg" alt = "Logo" style = "width:100px;">
+                <a href = "#" class = "item">
+                    <div class = "ui inverted left icon input">
+                        <input type = "text" placeholder = "輸入1或多字元來找文章...">
+                        <i class = "search link icon"></i>
+                    </div>
+                </a>
+                <a class = "item right aligned">
+                    <i class = "question circle link icon"></i>
+                </a>
+                <a href = "view/login.php" class = "item">
+                    <div class = "ui inverted right icon input" style = "color:white;">
+                        <p>我要登入</p>
+                    </div>
+                </a>
+                <a href = "view/register.php" class = "item">
+                    <div class = "ui inverted right icon input" style = "color:white;">
+                        <p>註冊</p>
+                    </div>
+                </a>
+                <a class = "item">
+                    <i class = "bars link icon"></i>
+                </a>
+            </div>
+        </div>
+        <div class = "ui blue inverted menu" style = "margin-top: 0px;">
+            <div class = "container">
+                <a class = "nav-link" style = "color: white;" href = "#"><b>哈啦區</b></a>
+                <a class = "nav-link" style = "color: white;" href = "#"><b>場外休憩區</b></a>
+                <a class = "nav-link" style = "color: white;" href = "index.php"><b>文章列表</b></a>
+                <a class = "nav-link" style = "color: white;" href = "#"><b>精華區</b></a>
+                <a class = "nav-link" style = "color: white;" href = "#"><b>版規</b></a>
+                <a class = "nav-link" style = "color: white;" href = "#"><b>水桶</b></a>
+                <a class = "item right aligned">
+                    <i class = "inverted tag link icon"></i>
+                </a>
+                <a class = "item">
+                    <i class = "inverted ellipsis horizontal link icon"></i>
+                </a>
+                <a href = "act/checklogin.php" class = "item">
+                    <div class = "ui inverted right icon input" style = "color:white;">
+                        <button class = "small pink ui button">發文</button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

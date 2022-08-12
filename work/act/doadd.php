@@ -7,9 +7,7 @@ require_once '../database/mysqlconfig.php';
 
 $id = $_SESSION["uid"];
 $title = $_POST["title"];
-$author = $_POST["author"];
-$_SESSION["author1"] = $author;
-
+$author = $_SESSION["id"];
 $content = $_POST["content"];
 $ip = $_SERVER["REMOTE_ADDR"];
 $database = new Database();

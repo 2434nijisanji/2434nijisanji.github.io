@@ -79,7 +79,7 @@ $id = $_SESSION['uid'];
                     </h1>
                     <p>
                         <?php echo"$id"?>，確定要登出嗎？
-                        或 點此 <a href = "test.php" class = "blue">返回</a>
+                        或 點此 <a href = "alltitle.php" class = "blue">返回</a>
                         繼續使用
                     </p>
                     <input type = "button" name = "getmail" class = "huge ui blue button" value = "確定" onclick = "location.href  =  '../act/dologout.php'" style = "width: 100%;">

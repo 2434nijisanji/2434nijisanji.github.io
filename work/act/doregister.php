@@ -9,6 +9,8 @@ $database = new Database();
 $link = $database->connect();
 $id = $_POST['uid'];
 $_SESSION['uid'] = $id;
+$uid = $_POST['id'];
+$_SESSION['id'] = $uid;
 $password = $_POST['password'];
 $confirmPassword = $_POST['confirmPassword'];
 if($password != $confirmPassword){?>
@@ -21,7 +23,7 @@ $res = $database -> print1($link,$alt);
 if($id != null && $password != null){
     $database = new Database();
     $link = $database->connect();
-    $sql = "insert into tbl_ms (username, password) values('$id', '$hash')";
+    $sql = "insert into tbl_ms (username, userid, password) values('$id', '$uid', '$hash')";
     for ($i = 0; $i < count($res); $i++) {
         if($id != $res[$i]['username']){
             $res = $database->insert($link, $sql);

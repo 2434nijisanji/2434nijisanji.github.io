@@ -1,12 +1,17 @@
 {
-    "name": "lab411/message-board",
-    "require": {},
-    "description": "留言板啦",
+    "name": "agc48/work",
     "autoload": {
         "psr-4": {
-            "Act\\" : "act",
-            "Database\\": "database",
-            "View\\": "view"
+            "Agc48\\Work\\": "src/"
         }
+    },
+    "authors": [
+        {
+            "name": "2434nijisanji",
+            "email": "s1092812@gm.pu.edu.tw"
+        }
+    ],
+    "require": {
+      "ext-mysqli": "*"
     }
 }

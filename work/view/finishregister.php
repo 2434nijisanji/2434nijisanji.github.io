@@ -91,7 +91,7 @@ $id = $_SESSION["uid"];
     </nav>
     <div class = "ui middle aligned center aligned grid">
         <div class = "column">
-            <form class = "ui large form" method = "POST" action = "test.php" name = "frmLogin">
+            <form class = "ui large form" method = "POST" action = "alltitle.php" name = "frmLogin">
                 <div class = "ui stacked segment">
                     <br>
                     <h1>
@@ -99,7 +99,7 @@ $id = $_SESSION["uid"];
                             <?php echo "$id" ?> 已完成註冊
                         </div>
                     </h1>
-                    <input type = "button" name = "nextstep" class = "huge ui blue button" onclick = "location.href  =  'test.php'" value = "開始旅程" style = "width: 100%;">
+                    <input type = "button" name = "nextstep" class = "huge ui blue button" onclick = "location.href  =  'alltitle.php'" value = "開始旅程" style = "width: 100%;">
                     <br>
                     <br>
                 </div>
